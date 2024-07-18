@@ -14,8 +14,20 @@ export const Login = () => {
       </Text>
       <form onSubmit={loginForm.handleSubmit(onSubmit)} className="mt-4">
         <div className="my-8 flex flex-col gap-4">
-          <FloatingLabel label="Email" variant="standard" />
-          <FloatingLabel label="Password" type="password" variant="standard" />
+          <FloatingLabel
+            {...loginForm.register("email", { required: true })}
+            label="Email"
+            variant="standard"
+          />
+          <FloatingLabel
+            {...loginForm.register("password", {
+              required: true,
+              minLength: 6,
+            })}
+            label="Password"
+            type="password"
+            variant="standard"
+          />
         </div>
         <div className="flex items-center gap-6">
           <div className="flex items-center gap-2">
@@ -33,7 +45,13 @@ export const Login = () => {
             </Link>
           </div>
         </div>
-        <Button className="w-full mt-4">Login</Button>
+        <Button
+          type="submit"
+          className="w-full mt-4"
+          disabled={!loginForm.formState.isValid}
+        >
+          Login
+        </Button>
       </form>
     </div>
   );

@@ -6,6 +6,7 @@ export const useViewLogin = () => {
   const { login } = useAuth();
   const loginForm = useForm();
   const onSubmit = (values: FieldValues) => {
+    console.log(values);
     login(mockAuthResponse);
   };
 

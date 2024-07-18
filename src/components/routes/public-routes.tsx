@@ -5,7 +5,7 @@ import { AuthLayout } from "../layouts/layouts/auth.layout";
 export const PublicRoutes = () => {
   return (
     <Routes>
-      <Route path="auth/*" element={<AuthLayout />}>
+      <Route element={<AuthLayout />}>
         <Route path="login" element={<Login />} />
       </Route>
     </Routes>
