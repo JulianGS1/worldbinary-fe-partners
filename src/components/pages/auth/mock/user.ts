@@ -9,7 +9,7 @@ const mockUser: IUser = {
   username: "exampleUser",
   email_verified_at: "2024-07-14T12:34:56.000Z",
   phone: "123-456-7890",
-  avatar: "https://example.com/avatar.png",
+  avatar: "/public/mock/persona.png",
   created_at: "2024-01-01T00:00:00.000Z",
   updated_at: "2024-07-14T12:34:56.000Z",
 };

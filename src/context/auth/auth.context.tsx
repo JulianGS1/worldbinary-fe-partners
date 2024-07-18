@@ -25,8 +25,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   const isAuthenticated = !!authData;
 
-  console.log(isAuthenticated);
-
   useEffect(() => {
     const currentUser = localStorage.getItem("user-current");
     if (currentUser) {

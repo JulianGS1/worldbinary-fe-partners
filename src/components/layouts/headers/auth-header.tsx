@@ -1,19 +1,9 @@
 import { Button } from "flowbite-react";
-import { useEffect, useState } from "react";
 import { MdDarkMode, MdSunny } from "react-icons/md";
+import { useDarkMode } from "../../hooks/useDarkMode";
 
 export const AuthHeader = () => {
-  const [theme, setTheme] = useState<"dark" | "light">("dark");
-  const toggleDarkMode = () => {
-    if (theme == "light") {
-      setTheme("dark");
-    } else {
-      setTheme("light");
-    }
-  };
-  useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
-  }, [theme]);
+  const { theme, toggleDarkMode } = useDarkMode();
   return (
     <div className="absolute w-full p-4 flex items-center justify-between">
       <img src="/images/bw.png" alt="wb icon" className="w-20" />
