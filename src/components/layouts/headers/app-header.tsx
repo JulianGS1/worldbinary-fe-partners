@@ -12,8 +12,8 @@ interface Props {
 export const AppHeader = ({ theme, toggleSidebar, toggleDarkMode }: Props) => {
   const { user } = useAuth();
   return (
-    <div className="h-20 w-full bg-primary-700 dark:bg-primary-900 md:bg-transparent dark:md:bg-transparent flex items-center justify-between md:justify-end px-4">
-      <Link to={"/"} className="md:hidden">
+    <div className="md:hidden h-20 w-full shrink-0 bg-primary-700 dark:bg-primary-900 md:bg-transparent dark:md:bg-transparent flex items-center justify-between px-4">
+      <Link to={"/"}>
         <img src="/images/bw.png" alt="bw logo" className="w-24" />
       </Link>
       <div className="flex items-center gap-4">

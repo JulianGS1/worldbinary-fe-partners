@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 
 export const useDarkMode = () => {
-  const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const currentTheme: "dark" | "light" =
+    (document.documentElement.getAttribute("data-theme") as "dark" | "light") ??
+    "light";
+  const [theme, setTheme] = useState<"dark" | "light">(currentTheme);
   const toggleDarkMode = () => {
     if (theme == "light") {
       setTheme("dark");
