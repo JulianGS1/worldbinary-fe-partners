@@ -15,7 +15,7 @@ export const Login = () => {
   return (
     <>
       <Helmet>
-        <title>Login - {config.default_title}</title>
+        <title>Iniciar sesión - {config.default_title}</title>
       </Helmet>
       <div className="p-8 bg-[#ffffffcc] dark:bg-[#00000077] rounded-lg w-90">
         <Text model="h1" className="text-center">
@@ -29,7 +29,7 @@ export const Login = () => {
                 pattern:
                   /^(([a-zA-Z0-9\-._]+)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
               })}
-              label="Email"
+              label="Correo"
               variant="standard"
               disabled={codeSend}
             />
@@ -39,7 +39,7 @@ export const Login = () => {
                   required: true,
                   minLength: 6,
                 })}
-                label="Password"
+                label="Contraseña"
                 type={passwordType}
                 variant="standard"
                 disabled={codeSend}
@@ -58,7 +58,7 @@ export const Login = () => {
                   "code",
                   codeSend ? { required: true, minLength: 6 } : undefined
                 )}
-                label="Code"
+                label="Código"
                 variant="standard"
               />
             )}
@@ -71,11 +71,11 @@ export const Login = () => {
                 onChange={() => console.log("This parameter is no modifier")}
                 disabled
               />
-              <Text model="sm">Remember me</Text>
+              <Text model="sm">Recordarme</Text>
             </div>
             <div>
               <Link to={"/auth/recover-password"}>
-                <Text model="sm">Forgot password?</Text>
+                <Text model="sm">¿Olvidaste tu contraseña?</Text>
               </Link>
             </div>
           </div>
@@ -90,7 +90,7 @@ export const Login = () => {
             disabled={!loginForm.formState.isValid}
             isProcessing={loginMutate.isLoading || verifyMutate.isLoading}
           >
-            Login
+            Ingresar
           </Button>
           {codeSend && (
             <Button className="w-full" onClick={resetForm} color={"gray"}>

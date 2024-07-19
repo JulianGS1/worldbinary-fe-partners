@@ -1,9 +1,9 @@
-import { salesHeader } from "../../sales/mock/sales-headers";
+import { recordsHeaders } from "../content/record-table-headers";
 import { datamock } from "../mock/datamock";
 
 export const useViewRecords = () => {
   const data = datamock;
-  const headers = salesHeader;
+  const headers = recordsHeaders;
 
   return {
     table: {

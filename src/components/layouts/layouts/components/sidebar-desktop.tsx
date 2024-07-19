@@ -24,7 +24,7 @@ export const SidebarDesktop = () => {
           ))}
         </div>
         <button className="flex items-center gap-2 p-3" onClick={logout}>
-          <MdLogout size={20} /> <Text className="font-semibold">Logout</Text>
+          <MdLogout size={20} /> <Text className="font-semibold">Salir</Text>
         </button>
       </div>
     </div>

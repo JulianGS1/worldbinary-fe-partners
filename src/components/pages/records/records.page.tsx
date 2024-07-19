@@ -7,7 +7,7 @@ export const Records = () => {
     table: { data, headers },
   } = useViewRecords();
   return (
-    <Container title="Records">
+    <Container title="Registros">
       <TableComponent
         headers={headers}
         currentPage={1}

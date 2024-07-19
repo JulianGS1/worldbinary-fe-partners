@@ -14,7 +14,7 @@ export const Dashboard = () => {
         <title>Dashboard - {config.default_title}</title>
       </Helmet>
       <Container title="Dashboard">
-        <div className="w-full rounded-xl bg-gradient-to-br from-primary-950 to-primary-700 p-4">
+        <div className="w-full rounded-xl bg-gradient-to-br from-primary-900 to-primary-700 p-4">
           <Text model="h2">{`¡Bienvenido ${username} 👋!`}</Text>
           <Text className="mt-4 font-semibold">
             Comparte este enlace con tus contactos y bríndales increíbles
@@ -48,7 +48,7 @@ interface CardProps {
 
 const Card = ({ title, description }: CardProps) => {
   return (
-    <div className="p-4 rounded-xl bg-gradient-to-br from-primary-950 to-primary-700">
+    <div className="p-4 rounded-xl bg-gradient-to-br from-primary-900 to-primary-700">
       <Text model="sm" className="font-semibold">
         {title}
       </Text>

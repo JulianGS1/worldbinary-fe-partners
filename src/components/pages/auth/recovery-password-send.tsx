@@ -13,12 +13,12 @@ export const RecoveryPasswordSend = () => {
   return (
     <>
       <Helmet>
-        <title>Recovery password - {config.default_title}</title>
+        <title>Recuperar contraseña - {config.default_title}</title>
       </Helmet>
       <div className="p-8 bg-[#ffffffcc] dark:bg-[#00000077] rounded-lg w-90">
         <Link
           to="/auth/login"
-          className="flex items-center gap-2 text-primary-800 py-1"
+          className="flex items-center gap-2 text-primary-500 py-1"
         >
           <MdArrowBack /> Volver al inicio de sisión
         </Link>

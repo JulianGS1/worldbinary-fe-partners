@@ -42,7 +42,7 @@ export const SidebarMobile = ({ sidebar, toggleSidebar }: Props) => {
         </div>
         <div className="flex items-center gap-5 rounded-lg p-3">
           <MdLogout size={20} />
-          <Text className="font-bold">Logout</Text>
+          <Text className="font-bold">Salir</Text>
         </div>
       </div>
       <div className="h-full grow" onClick={toggleSidebar}></div>

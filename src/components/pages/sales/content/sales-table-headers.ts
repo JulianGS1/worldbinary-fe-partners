@@ -7,7 +7,7 @@ export const salesHeaders: IHeaders[] = [
   },
   {
     key: "email",
-    label: "Email",
+    label: "Correo",
   },
   {
     key: "country",
