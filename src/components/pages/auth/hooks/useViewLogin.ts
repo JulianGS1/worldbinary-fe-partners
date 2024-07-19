@@ -1,11 +1,11 @@
-import { FieldValues, useForm } from "react-hook-form";
-import { useAuth } from "../../../../context/auth/useAuth";
-import { mockAuthResponse } from "../mock/user";
-import { loginAdapter, verifyAdapter } from "../adapter/auth.adapter";
-import { AuthServices } from "../../../../services/auth.service";
-import { useMutation } from "react-query";
-import { useState } from "react";
 import { AxiosError } from "axios";
+import { useState } from "react";
+import { FieldValues, useForm } from "react-hook-form";
+import { useMutation } from "react-query";
+import { useAuth } from "../../../../context/auth/useAuth";
+import { IErrorResponse } from "../../../../interfaces/auth/auth.interface";
+import { AuthServices } from "../../../../services/auth.service";
+import { loginAdapter, verifyAdapter } from "../adapter/auth.adapter";
 
 const authServices = AuthServices();
 
@@ -17,32 +17,39 @@ export const useViewLogin = () => {
   const [errorMessage, setErrorMessage] = useState<string | undefined>(
     undefined
   );
+  const [passwordType, setPasswordType] = useState<"text" | "password">(
+    "password"
+  );
+
+  const togglePassword = () => {
+    if (passwordType == "password") {
+      setPasswordType("text");
+    }
+    if (passwordType == "text") {
+      setPasswordType("password");
+    }
+  };
 
   const loginMutate = useMutation(authServices.login, {
-    onSuccess: (nice) => {
-      console.log(nice);
+    onSuccess: (response) => {
+      setHash(response.data.data.item.hash);
       setCodeSend(true);
-      setHash(nice.data.hash);
     },
-    onError: (error: AxiosError<{ message: string }>) => {
-      console.log(error);
-      setErrorMessage(error.response?.data.message);
+    onError: (error: AxiosError<IErrorResponse>) => {
+      setErrorMessage(error.response?.data.kindMessage);
     },
   });
 
   const verifyMutate = useMutation(authServices.verify, {
-    onSuccess: (nice) => {
-      console.log(nice);
-      login(mockAuthResponse);
+    onSuccess: (response) => {
+      login(response.data.data.item);
     },
-    onError: (error: AxiosError<{ message: string }>) => {
-      console.log(error);
-      setErrorMessage(error.response?.data.message);
+    onError: (error: AxiosError<IErrorResponse>) => {
+      setErrorMessage(error.response?.data.kindMessage);
     },
   });
 
   const onSend = (values: FieldValues) => {
-    login(mockAuthResponse);
     setErrorMessage("");
     if (!codeSend) {
       const data = loginAdapter(values);
@@ -55,10 +62,17 @@ export const useViewLogin = () => {
     }
   };
 
+  const resetForm = () => {
+    setCodeSend(false);
+    loginForm.reset();
+    setErrorMessage(undefined);
+  };
+
   return {
     forms: {
       loginForm,
       onSend,
+      resetForm,
     },
     query: {
       loginMutate,
@@ -67,6 +81,8 @@ export const useViewLogin = () => {
     states: {
       codeSend,
       errorMessage,
+      passwordType,
+      togglePassword,
     },
   };
 };

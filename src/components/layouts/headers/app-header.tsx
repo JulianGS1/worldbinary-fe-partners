@@ -18,7 +18,7 @@ export const AppHeader = ({ toggleSidebar }: Props) => {
         <button onClick={toggleSidebar} className="md:hidden">
           <MdMenu size={25} />
         </button>
-        {user?.user.avatar && <Avatar img={user.user.avatar} />}
+        {user && <Avatar img={user.user.avatar ?? "/images/neil-sims.png"} />}
       </div>
     </div>
   );

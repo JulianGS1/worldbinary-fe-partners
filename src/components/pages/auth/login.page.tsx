@@ -1,16 +1,16 @@
 import { Alert, Button, FloatingLabel, ToggleSwitch } from "flowbite-react";
+import { Helmet } from "react-helmet";
+import { MdError, MdRemoveRedEye } from "react-icons/md";
+import { Link } from "react-router-dom";
+import config from "../../../config";
 import { Text } from "../../ui/text/Text";
 import { useViewLogin } from "./hooks/useViewLogin";
-import { Link } from "react-router-dom";
-import { MdError } from "react-icons/md";
-import { Helmet } from "react-helmet";
-import config from "../../../config";
 
 export const Login = () => {
   const {
-    forms: { loginForm, onSend },
+    forms: { loginForm, onSend, resetForm },
     query: { loginMutate, verifyMutate },
-    states: { codeSend, errorMessage },
+    states: { codeSend, errorMessage, passwordType, togglePassword },
   } = useViewLogin();
   return (
     <>
@@ -31,16 +31,27 @@ export const Login = () => {
               })}
               label="Email"
               variant="standard"
+              disabled={codeSend}
             />
-            <FloatingLabel
-              {...loginForm.register("password", {
-                required: true,
-                minLength: 6,
-              })}
-              label="Password"
-              type="password"
-              variant="standard"
-            />
+            <div className="relative">
+              <FloatingLabel
+                {...loginForm.register("password", {
+                  required: true,
+                  minLength: 6,
+                })}
+                label="Password"
+                type={passwordType}
+                variant="standard"
+                disabled={codeSend}
+              />
+              <button
+                className="absolute right-4 top-3"
+                onClick={togglePassword}
+                type="button"
+              >
+                <MdRemoveRedEye className="text-white" size={20} />
+              </button>
+            </div>
             {codeSend && (
               <FloatingLabel
                 {...loginForm.register(
@@ -63,24 +74,29 @@ export const Login = () => {
               <Text model="sm">Remember me</Text>
             </div>
             <div>
-              <Link to={"/auth/forgot"}>
+              <Link to={"/auth/recover-password"}>
                 <Text model="sm">Forgot password?</Text>
               </Link>
             </div>
           </div>
           {errorMessage && (
-            <Alert color={"failure"} icon={MdError}>
+            <Alert color={"failure"} icon={MdError} className="my-4">
               {errorMessage}
             </Alert>
           )}
           <Button
             type="submit"
-            className="w-full mt-4"
+            className="w-full my-4"
             disabled={!loginForm.formState.isValid}
             isProcessing={loginMutate.isLoading || verifyMutate.isLoading}
           >
             Login
           </Button>
+          {codeSend && (
+            <Button className="w-full" onClick={resetForm} color={"gray"}>
+              Limpiar
+            </Button>
+          )}
         </form>
       </div>
     </>

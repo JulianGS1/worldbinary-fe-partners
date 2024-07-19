@@ -7,6 +7,7 @@ import config from "../../../config";
 
 export const Dashboard = () => {
   const { user } = useAuth();
+  const username = user?.user.email.split("@")[0];
   return (
     <>
       <Helmet>
@@ -14,18 +15,18 @@ export const Dashboard = () => {
       </Helmet>
       <Container title="Dashboard">
         <div className="w-full rounded-xl bg-gradient-to-br from-primary-950 to-primary-700 p-4">
-          <Text model="h2">{`¡Bienvenido ${user?.user.username} 👋!`}</Text>
+          <Text model="h2">{`¡Bienvenido ${username} 👋!`}</Text>
           <Text className="mt-4 font-semibold">
             Comparte este enlace con tus contactos y bríndales increíbles
             beneficios
           </Text>
-          {user?.user.partnerLink && (
+          {user?.user.partnerCode && (
             <div className="mt-8">
               <Text className="p-3 border rounded-xl mb-4 bg-[#00000077] truncate">
-                {user?.user.partnerLink}
+                {user?.user.partnerCode}
               </Text>
               <Clipboard
-                valueToCopy={user?.user.partnerLink}
+                valueToCopy={user?.user.partnerCode}
                 label={"Copiar"}
               />
             </div>

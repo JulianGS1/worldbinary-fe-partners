@@ -6,6 +6,7 @@ import { Login } from "../pages/auth/login.page";
 import { Dashboard } from "../pages/dashboard/dashboard.page";
 import { Records } from "../pages/records/records.page";
 import { Sales } from "../pages/sales/sales.page";
+import { RecoveryPasswordSend } from "../pages/auth/recovery-password-send";
 
 export const Router = () => {
   const { isAuthenticated } = useAuth();
@@ -24,6 +25,7 @@ export const Router = () => {
         <>
           <Route path="/auth/*" element={<AuthLayout />}>
             <Route path="login" element={<Login />} />
+            <Route path="recover-password" element={<RecoveryPasswordSend />} />
           </Route>
           <Route path="*" element={<Navigate to={"/auth/login"} />} />
         </>

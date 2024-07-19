@@ -1,5 +1,5 @@
 const config = {
-  api_url: import.meta.env["VITE_API_URLs"],
+  api_url: import.meta.env["VITE_API_URL"],
   default_title: "World Binary",
 };
 

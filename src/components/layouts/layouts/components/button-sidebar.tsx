@@ -22,7 +22,7 @@ export const ButtonSidebar = ({
       to={href}
       className={({ isActive }) =>
         clsx(
-          "w-full flex items-center gap-4 p-2 rounded-lg",
+          "w-full flex items-center gap-4 p-2 rounded-lg hover:bg-primary-700",
           isActive && "bg-primary-900"
         )
       }
