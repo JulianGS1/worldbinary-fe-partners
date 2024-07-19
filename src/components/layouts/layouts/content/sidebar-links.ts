@@ -1,4 +1,4 @@
-import { MdBarChart, MdDashboard } from "react-icons/md";
+import { MdBarChart, MdDashboard, MdFileCopy } from "react-icons/md";
 
 export const sidebarLinks = [
   {
@@ -10,5 +10,10 @@ export const sidebarLinks = [
     icon: MdBarChart,
     label: "Ventas",
     href: "/sales",
+  },
+  {
+    icon: MdFileCopy,
+    label: "Registros",
+    href: "/records",
   },
 ];

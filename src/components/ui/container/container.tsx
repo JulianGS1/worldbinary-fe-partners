@@ -12,9 +12,7 @@ interface Props {
 export const Container = ({ children, title, className }: Props) => {
   const { user } = useAuth();
   return (
-    <div
-      className={clsx("my-12 mx-4 md:mx-0 md:pr-6 flex flex-col ", className)}
-    >
+    <div className={clsx("my-12 mx-4 md:mx-0 flex flex-col", className)}>
       <div className="flex items-center justify-between w-full">
         <div>
           <Text model="h1" className="text-primary-950">
@@ -36,7 +34,7 @@ export const Container = ({ children, title, className }: Props) => {
           </div>
         </div>
       </div>
-      <div className=" dark:bg-transparent my-4 bg-red-300">{children}</div>
+      <div className="mt-6">{children}</div>
     </div>
   );
 };

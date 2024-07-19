@@ -35,6 +35,7 @@ export const SidebarMobile = ({ sidebar, toggleSidebar }: Props) => {
                 href={link.href}
                 label={link.label}
                 icon={link.icon}
+                toggleSidebar={toggleSidebar}
               />
             ))}
           </div>

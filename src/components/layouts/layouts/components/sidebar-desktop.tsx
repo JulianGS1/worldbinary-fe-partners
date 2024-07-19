@@ -8,7 +8,7 @@ import { useAuth } from "../../../../context/auth/useAuth";
 export const SidebarDesktop = () => {
   const { logout } = useAuth();
   return (
-    <div className="w-64 h-full fixed top-0 left-0 hidden md:block p-6">
+    <div className="w-64 h-full fixed top-0 left-0 hidden md:block p-6 shrink-0">
       <div className="bg-primary-600 dark:bg-primary-800 h-full p-4 rounded-lg shadow-md flex flex-col">
         <Link to={"/"} className="">
           <img src="/images/bw.png" alt="bw logo" className="w-32 mx-auto" />{" "}

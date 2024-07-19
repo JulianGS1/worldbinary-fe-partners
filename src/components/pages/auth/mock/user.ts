@@ -5,14 +5,14 @@ import {
 
 const mockUser: IUser = {
   id: "1a2b3c4d5e6f7g8h9i0j",
-  email: "example@example.com",
-  username: "exampleUser",
+  email: "julian.agama@globals.one",
+  username: "Julian Agama",
   email_verified_at: "2024-07-14T12:34:56.000Z",
   phone: "123-456-7890",
   avatar: "/mock/persona.png",
   created_at: "2024-01-01T00:00:00.000Z",
   updated_at: "2024-07-14T12:34:56.000Z",
-  partnerLink: "http://example.com/persona/123jnjn123jbj12h3",
+  partnerLink: "http://worldbinary.pro/partner/1a2b3c4d5e6f7g8h9i0j",
 };
 
 export const mockAuthResponse: IAuthResponse = {

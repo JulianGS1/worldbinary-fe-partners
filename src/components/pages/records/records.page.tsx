@@ -1,17 +1,17 @@
 import { Container } from "../../ui/container/container";
 import { TableComponent } from "../../ui/table/table-component";
-import { useViewSales } from "./hooks/useViewSales";
+import { useViewRecords } from "./hooks/useViewRecords";
 
-export const Sales = () => {
+export const Records = () => {
   const {
-    table: { page, data, headers },
-  } = useViewSales();
+    table: { data, headers },
+  } = useViewRecords();
   return (
-    <Container title="Ventas">
+    <Container title="Records">
       <TableComponent
         headers={headers}
-        currentPage={page}
-        totalPage={page}
+        currentPage={1}
+        totalPage={10}
         data={data}
       />
     </Container>
