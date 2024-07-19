@@ -7,6 +7,7 @@ export interface IUser {
   avatar: string | null;
   created_at: string;
   updated_at: string;
+  partnerLink: string;
 }
 
 export interface IAuthResponse {

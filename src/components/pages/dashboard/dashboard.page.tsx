@@ -13,15 +13,14 @@ export const Dashboard = () => {
           Comparte este enlace con tus contactos y bríndales increíbles
           beneficios
         </Text>
-        <div className="mt-8">
-          <Text className="p-3 border rounded-xl mb-4 bg-[#00000077]">
-            Este es el link de referido
-          </Text>
-          <Clipboard
-            valueToCopy="Este es el link de referido"
-            label={"Copiar"}
-          />
-        </div>
+        {user?.user.partnerLink && (
+          <div className="mt-8">
+            <Text className="p-3 border rounded-xl mb-4 bg-[#00000077]">
+              {user?.user.partnerLink}
+            </Text>
+            <Clipboard valueToCopy={user?.user.partnerLink} label={"Copiar"} />
+          </div>
+        )}
       </div>
       <div className="mt-8 grid sm:grid-cols-2 gap-4">
         <Card title="Cantidad de depósitos" description="30" />

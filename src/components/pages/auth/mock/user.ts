@@ -12,6 +12,7 @@ const mockUser: IUser = {
   avatar: "/mock/persona.png",
   created_at: "2024-01-01T00:00:00.000Z",
   updated_at: "2024-07-14T12:34:56.000Z",
+  partnerLink: "http://example.com/persona/123jnjn123jbj12h3",
 };
 
 export const mockAuthResponse: IAuthResponse = {
