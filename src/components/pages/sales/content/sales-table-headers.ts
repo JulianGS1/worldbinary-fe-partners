@@ -2,6 +2,14 @@ import { IHeaders } from "../../../ui/table/table.interface";
 
 export const salesHeaders: IHeaders[] = [
   {
+    key: "commissionType",
+    label: "Tipo de comisión",
+  },
+  {
+    key: "id",
+    label: "Id de Transacción",
+  },
+  {
     key: "name",
     label: "Nombre",
   },
@@ -18,15 +26,15 @@ export const salesHeaders: IHeaders[] = [
     label: "Fecha de depósito",
   },
   {
-    key: "commissionType",
-    label: "Tipo de comisión",
-  },
-  {
     key: "depositAmount",
     label: "Cantidad de depósito",
   },
   {
     key: "commission",
     label: "Comisión",
+  },
+  {
+    key: "volume",
+    label: "Volumen",
   },
 ];

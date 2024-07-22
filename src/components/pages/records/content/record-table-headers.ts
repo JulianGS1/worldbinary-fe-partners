@@ -17,8 +17,4 @@ export const recordsHeaders: IHeaders[] = [
     key: "phone",
     label: "Teléfono",
   },
-  {
-    key: "totalCommission",
-    label: "Comisión Total",
-  },
 ];

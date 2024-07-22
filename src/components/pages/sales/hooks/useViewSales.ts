@@ -1,18 +1,18 @@
-import { useState } from "react";
-import { salesDataMock } from "../mock/datamock";
+import { useTable } from "../../../ui/table/useTable";
 import { salesHeaders } from "../content/sales-table-headers";
+import { salesDataMock } from "../mock/datamock";
 
 export const useViewSales = () => {
-  const [page, setPage] = useState(1);
-  const data = salesDataMock;
   const headers = salesHeaders;
+  const propsTable = useTable(headers);
+
+  const data = salesDataMock;
 
   return {
     table: {
-      page,
-      setPage,
       data,
       headers,
+      propsTable,
     },
   };
 };
