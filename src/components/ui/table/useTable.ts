@@ -46,5 +46,6 @@ export const useTable = (headers: IHeaders[]) => {
     onChangePage,
     onChangeAmount,
     setPages,
+    headers,
   };
 };

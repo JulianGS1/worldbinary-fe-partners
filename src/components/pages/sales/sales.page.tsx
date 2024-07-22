@@ -4,11 +4,11 @@ import { useViewSales } from "./hooks/useViewSales";
 
 export const Sales = () => {
   const {
-    table: { data, headers, propsTable },
+    table: { data, propsTable },
   } = useViewSales();
   return (
     <Container title="Ventas">
-      <TableComponent headers={headers} data={data} props={propsTable} />
+      <TableComponent data={data} props={propsTable} />
     </Container>
   );
 };

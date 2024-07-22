@@ -3,15 +3,12 @@ import { salesHeaders } from "../content/sales-table-headers";
 import { salesDataMock } from "../mock/datamock";
 
 export const useViewSales = () => {
-  const headers = salesHeaders;
-  const propsTable = useTable(headers);
-
+  const propsTable = useTable(salesHeaders);
   const data = salesDataMock;
 
   return {
     table: {
       data,
-      headers,
       propsTable,
     },
   };

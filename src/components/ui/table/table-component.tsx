@@ -4,9 +4,9 @@ import { MdArrowDropDown, MdArrowDropUp } from "react-icons/md";
 import { IHeaders } from "./table.interface";
 
 interface Props<T> {
-  headers: IHeaders[];
   data: T[];
   props: {
+    headers: IHeaders[];
     pages: number;
     currentPage: number;
     amount: number;
@@ -20,7 +20,6 @@ interface Props<T> {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const TableComponent = <T extends Record<string, any>>({
-  headers,
   data,
   props,
 }: Props<T>) => {
@@ -29,7 +28,7 @@ export const TableComponent = <T extends Record<string, any>>({
       <div className="overflow-auto">
         <Table striped>
           <Table.Head>
-            {headers.map((head) => (
+            {props.headers.map((head) => (
               <Table.HeadCell
                 key={head.key}
                 className={clsx(
@@ -53,7 +52,7 @@ export const TableComponent = <T extends Record<string, any>>({
           <Table.Body>
             {data.map((element, index) => (
               <Table.Row key={index}>
-                {headers.map((head, index) => (
+                {props.headers.map((head, index) => (
                   <Table.Cell className="text-center" key={index}>
                     {element[head.key]}
                   </Table.Cell>

@@ -4,16 +4,11 @@ import { useViewRecords } from "./hooks/useViewRecords";
 
 export const Records = () => {
   const {
-    table: { data, headers },
+    table: { data, propsTable },
   } = useViewRecords();
   return (
     <Container title="Registros">
-      <TableComponent
-        headers={headers}
-        currentPage={1}
-        totalPage={10}
-        data={data}
-      />
+      <TableComponent props={propsTable} data={data} />
     </Container>
   );
 };
