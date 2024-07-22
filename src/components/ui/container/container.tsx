@@ -11,7 +11,6 @@ interface Props {
 
 export const Container = ({ children, title, className }: Props) => {
   const { user } = useAuth();
-  const username = user?.user.email.split("@")[0];
   return (
     <div className={clsx("my-12 mx-4 md:mx-0 flex flex-col", className)}>
       <div className="flex items-center justify-between w-full">
@@ -23,14 +22,10 @@ export const Container = ({ children, title, className }: Props) => {
         <div className="items-center gap-4 hidden md:flex">
           <div className="">
             {user && (
-              <Avatar img={user.user.avatar ?? "/images/neil-sims.png"} rounded>
-                <Text className="flex flex-col font-semibold" model="sm">
-                  {username}
-                  <Text tag="span" model="sm" className="truncate text-[11px]">
-                    {user.user.email}
-                  </Text>
-                </Text>
-              </Avatar>
+              <Avatar
+                img={user?.userInfo?.avatar ?? "/images/neil-sims.png"}
+                rounded
+              />
             )}
           </div>
         </div>

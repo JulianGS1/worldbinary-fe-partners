@@ -9,6 +9,7 @@ interface Props {
 
 export const AppHeader = ({ toggleSidebar }: Props) => {
   const { user } = useAuth();
+  const avatar = user?.userInfo?.avatar ?? "/images/neil-sims.png";
   return (
     <div className="md:hidden h-20 w-full shrink-0 bg-primary-700 dark:bg-primary-900 flex items-center justify-between px-4">
       <Link to={"/"}>
@@ -18,7 +19,7 @@ export const AppHeader = ({ toggleSidebar }: Props) => {
         <button onClick={toggleSidebar} className="md:hidden">
           <MdMenu size={25} />
         </button>
-        {user && <Avatar img={user.user.avatar ?? "/images/neil-sims.png"} />}
+        {user && <Avatar img={avatar} />}
       </div>
     </div>
   );

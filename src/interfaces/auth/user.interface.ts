@@ -18,5 +18,5 @@ export interface IUser {
 
 export interface IAuthResponse {
   token: string;
-  user: IUser;
+  userInfo: IUser;
 }
